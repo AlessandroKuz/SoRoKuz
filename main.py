@@ -39,8 +39,39 @@ def get_empty_cells(grid):
     return empty_cells
 
 
-def check_numbers():
-    ...
+def check_numbers(grid):
+    # Check rows
+    for i in range(9):
+        seen = set()
+        for j in range(9):
+            num = grid[i][j]
+            if num != 0:
+                if num in seen:
+                    return False
+                seen.add(num)
+
+    # Check columns
+    for j in range(9):
+        seen = set()
+        for i in range(9):
+            num = grid[i][j]
+            if num != 0:
+                if num in seen:
+                    return False
+                seen.add(num)
+
+    # Check subgrids
+    for block in range(9):
+        seen = set()
+        for i in range(3):
+            for j in range(3):
+                num = grid[3 * (block // 3) + i][3 * (block % 3) + j]
+                if num != 0:
+                    if num in seen:
+                        return False
+                    seen.add(num)
+
+    return True
 
 
 
@@ -57,9 +88,16 @@ def main():
     [0, 0, 0, 0, 8, 0, 0, 7, 9]]
     
     display_grid(sudoku_grid)
+
     solved_grid = insert_numbers(sudoku_grid)
+    
     display_grid(solved_grid)
-    check_numbers()
+
+    if icheck_numbers(solved_grid):
+        print("The Sudoku solution is valid.")
+    else:
+        print("The Sudoku solution is invalid.")
+    
 
 if __name__ == "__main__":
     main()
