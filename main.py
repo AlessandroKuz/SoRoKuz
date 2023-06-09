@@ -93,7 +93,7 @@ def main():
     
     display_grid(solved_grid)
 
-    if icheck_numbers(solved_grid):
+    if check_numbers(solved_grid):
         print("The Sudoku solution is valid.")
     else:
         print("The Sudoku solution is invalid.")
