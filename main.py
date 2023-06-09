@@ -1,9 +1,3 @@
-# Objective:
-# 1. Create base structure of the game
-# 2. Display the game grid
-# 3. Insert the numbers in the grid
-# 4. Check if the number is valid
-
 def display_grid(grid):
     for i in range(len(grid)):
         if i % 3 == 0 and i != 0:
