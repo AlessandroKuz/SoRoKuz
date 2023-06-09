@@ -8,8 +8,23 @@ def display_grid():
     ...
 
 
-def insert_numbers():
-    ...
+def insert_numbers(grid):
+    empty_cells = get_empty_cells(grid)
+    while empty_cells:
+        for cell in empty_cells:
+            i, j = cell
+            while True:
+                try:
+                    num = int(input(f"Enter the number for row {i + 1}, column {j + 1}: "))
+                    if num < 0 or num > 9:
+                        raise ValueError
+                    grid[i][j] = num
+                    break
+                except ValueError:
+                    print("Invalid input. Please enter a number between 0 and 9.")
+        empty_cells = get_empty_cells(grid)
+
+    return grid
 
 
 def get_empty_cells(grid):
