@@ -12,6 +12,15 @@ def insert_numbers():
     ...
 
 
+def get_empty_cells(grid):
+    empty_cells = []
+    for i in range(9):
+        for j in range(9):
+            if grid[i][j] == 0:
+                empty_cells.append((i, j))
+    return empty_cells
+
+
 def check_numbers():
     ...
 
