@@ -43,6 +43,7 @@ def check_numbers():
     ...
 
 
+
 def main():
     sudoku_grid = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
@@ -55,10 +56,10 @@ def main():
     [0, 0, 0, 4, 1, 9, 0, 0, 5],
     [0, 0, 0, 0, 8, 0, 0, 7, 9]]
     
-    display_grid()
-    insert_numbers()
+    display_grid(sudoku_grid)
+    solved_grid = insert_numbers(sudoku_grid)
+    display_grid(solved_grid)
     check_numbers()
-
 
 if __name__ == "__main__":
     main()
